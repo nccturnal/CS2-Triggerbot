@@ -37,8 +37,8 @@ namespace cs2_triggerbot
 
         static void Main(string[] args)
         {
-            Console.WriteLine($"[-] TriggerBot started.");
-            Console.WriteLine($"[-] Trigger key: {triggerKey}");
+            Console.WriteLine($"TriggerBot started.");
+            Console.WriteLine($"Trigger key: {triggerKey}");
 
             Process process = null;
             IntPtr clientModule = IntPtr.Zero;
@@ -50,7 +50,7 @@ namespace cs2_triggerbot
                 if (processes.Length == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine("Please open Counter-Strike 2!");
+                    Console.WriteLine("open cs 2");
                     Console.ReadKey();
                     return;
                 }
@@ -69,7 +69,7 @@ namespace cs2_triggerbot
 
                 if (clientModule == IntPtr.Zero)
                 {
-                    Console.WriteLine("Failed to find client.dll module!");
+                    Console.WriteLine("Failed to find client.dll module");
                     Console.ReadKey();
                     return;
                 }
@@ -177,4 +177,5 @@ namespace cs2_triggerbot
         [DllImport("kernel32.dll")]
         static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, out IntPtr lpNumberOfBytesRead);
     }
+
 }
